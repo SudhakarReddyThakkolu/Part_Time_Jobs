@@ -1,9 +1,15 @@
 package com.sudha.PartTimeJobs.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "customers")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
 
     @Id
@@ -23,51 +29,5 @@ public class Customer {
 
     private String address;
 
-    private boolean active; // whether account is active
-
-    // Constructors
-    public Customer() {}
-
-    public Customer(String fullName, String phone, String email, String city, String area, String address, boolean active) {
-        this.fullName = fullName;
-        this.phone = phone;
-        this.email = email;
-        this.city = city;
-        this.area = area;
-        this.address = address;
-        this.active = active;
-    }
-
-    // Getters and Setters
-    public Long getId() { return id; }
-
-    public void setId(Long id) { this.id = id; }
-
-    public String getFullName() { return fullName; }
-
-    public void setFullName(String fullName) { this.fullName = fullName; }
-
-    public String getPhone() { return phone; }
-
-    public void setPhone(String phone) { this.phone = phone; }
-
-    public String getEmail() { return email; }
-
-    public void setEmail(String email) { this.email = email; }
-
-    public String getCity() { return city; }
-
-    public void setCity(String city) { this.city = city; }
-
-    public String getArea() { return area; }
-
-    public void setArea(String area) { this.area = area; }
-
-    public String getAddress() { return address; }
-
-    public void setAddress(String address) { this.address = address; }
-
-    public boolean isActive() { return active; }
-
-    public void setActive(boolean active) { this.active = active; }
+    private boolean active;
 }

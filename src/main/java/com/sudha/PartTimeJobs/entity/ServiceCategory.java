@@ -1,8 +1,14 @@
 package com.sudha.PartTimeJobs.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "service_categories")
 public class ServiceCategory {
 
@@ -11,40 +17,7 @@ public class ServiceCategory {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String name;  // e.g., Cooking, Driving, Plumbing
+    private String categoryName;  // Changed from "name" to "categoryName" to match DTO
 
     private String description;
-
-    // Constructors
-    public ServiceCategory() {}
-
-    public ServiceCategory(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
