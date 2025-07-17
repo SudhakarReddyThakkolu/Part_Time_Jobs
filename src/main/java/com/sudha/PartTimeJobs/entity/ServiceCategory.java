@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,7 +19,11 @@ public class ServiceCategory {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String categoryName;  // Changed from "name" to "categoryName" to match DTO
+    private String categoryName;
 
     private String description;
+
+    // One category can have many job requests
+    @OneToMany(mappedBy = "serviceCategory", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<JobRequest> jobRequests;
 }

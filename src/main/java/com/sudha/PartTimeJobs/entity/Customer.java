@@ -5,11 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
-@Table(name = "customers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -22,12 +24,11 @@ public class Customer {
     private String phone;
 
     private String email;
-
     private String city;
-
     private String area;
-
     private String address;
-
     private boolean active;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<JobRequest> jobRequests;
 }

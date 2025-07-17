@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,13 +25,9 @@ public class ServiceProvider {
     private String phone;
 
     private String email;
-
     private String city;
-
     private String area;
-
-    private int experience; // in years
-
+    private int experience;
     private double hourlyRate;
 
     @ElementCollection
@@ -39,4 +36,7 @@ public class ServiceProvider {
     private Set<String> servicesOffered;
 
     private boolean available;
+
+    @OneToMany(mappedBy = "serviceProvider", cascade = CascadeType.ALL)
+    private List<JobRequest> jobRequests;
 }
