@@ -33,8 +33,8 @@ public class JobRequestServiceImpl implements JobRequestService {
     @Autowired
     private ServiceCategoryRepository serviceCategoryRepository;
 
-    @Autowired
-    private JobRequestMapper jobRequestMapper;
+//    @Autowired
+//    private JobRequestMapper jobRequestMapper;
 
     @Override
     public JobRequestDTO createJobRequest(JobRequestDTO dto) {
